@@ -47,7 +47,7 @@ echo ">>> Building suckless software..."
 for prog in dwm st dmenu dwmblocks; do
     if [ -d "$DOTFILES_DIR/$prog" ]; then
         echo "Installing $prog..."
-        (cd "$DOTFILES_DIR/$prog" && make clean install)
+        (cd "$DOTFILES_DIR/$prog" && sudo make clean install)
     fi
 done
 
