@@ -1,0 +1,14 @@
+[Unit]
+Description=MPV Flask Server
+After=default.target
+
+[Service]
+ExecStart=/usr/bin/python3 $HOME/.dotfiles/.config/bin/mpv-launcher.py
+Restart=on-failure
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+WorkingDirectory=$HOME/.dotfiles/.config/bin
+
+[Install]
+WantedBy=default.target
+

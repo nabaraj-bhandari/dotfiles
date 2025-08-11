@@ -1,0 +1,10 @@
+#!/bin/bash
+WALLDIR="$HOME/.dotfiles/wallpapers"
+
+WALL=$(find "$WALLDIR" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.bmp' \) | shuf -n 1)
+
+feh --bg-fill "$WALL"
+wal -i "$WALL" -n
+xrdb merge ~/.cache/wal/colors.Xresources
+
+
