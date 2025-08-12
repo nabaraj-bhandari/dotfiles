@@ -4,7 +4,7 @@ filetype plugin indent on
 syntax enable
 set encoding=utf-8
 set mouse=a
-set clipboard=unnamedplus
+set clipboard+=unnamedplus
 
 " === Interface ===
 set number
