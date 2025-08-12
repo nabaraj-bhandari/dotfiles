@@ -9,7 +9,7 @@ static const int vertpad 			= 2; 		/* vertical padding of bar */
 static const int sidepad 			= 4; 		/* vertical padding of bar */
 static const char *fonts[]          = { "JetBrains Mono:size=12",
                                         "Noto Color Emoji:pixelsize=12:antialias=true:autohint=true" };
-static const int gappx 		    = 4;       /* gaps between windows */
+static const int gappx 		    = 6;       /* gaps between windows */
 
 #include "/home/nabaraj/.cache/wal/colors-wal-dwm.h"
 

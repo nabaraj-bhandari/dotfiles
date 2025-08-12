@@ -1,0 +1,10 @@
+#!/bin/bash
+URL="$1"
+COOKIES="~/.config/yt-dlp/1.txt"
+
+# Download best video + audio
+notify-send "yt-dlp" "Started Download: $URL"
+
+cd ~/Videos; yt-dlp "$URL" --cookies "$COOKIES" 
+
+notify-send "yt-dlp" "Download Completed: $URL"

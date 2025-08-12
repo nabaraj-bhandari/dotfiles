@@ -22,7 +22,7 @@ picom --config ~/.config/picom/picom.conf &
 dunst &
 
 # Start ws-server
-~/.dotfiles/.config/bin/ws-server &
+#~/.dotfiles/.config/bin/ws-server &
 
 # Load wallpapers
 

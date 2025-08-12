@@ -1,1 +1,1 @@
---embed-thumbnail --merge-output-format mkv
+-f "399+251/399+140/399+234/136+251/136+140/136+234/398+251/398+140/398+234/bestvideo+bestaudio/best" -o "$HOME/Videos/%(title)s.%(ext)s" --no-playlist --restrict-filenames --embed-thumbnail --merge-output-format mkv
