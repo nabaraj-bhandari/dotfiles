@@ -5,20 +5,13 @@ static const unsigned int borderpx  = 1;       	/* border pixel of windows */
 static const unsigned int snap      = 32;      	/* snap pixel */
 static const int showbar            = 1;       	/* 0 means no bar */
 static const int topbar             = 1;       	/* 0 means bottom bar */
-static const int vertpad 			= 2; 		/* vertical padding of bar */
+static const int vertpad 			= 4; 		/* vertical padding of bar */
 static const int sidepad 			= 4; 		/* vertical padding of bar */
 static const char *fonts[]          = { "JetBrains Mono:size=12",
                                         "Noto Color Emoji:pixelsize=12:antialias=true:autohint=true" };
-static const int gappx 		    = 6;       /* gaps between windows */
+static const int gappx 		    = 4;       /* gaps between windows */
 
 #include "/home/nabaraj/.cache/wal/colors-wal-dwm.h"
-
-/*
-static char *colors[][3] = {
-    [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
-    [SchemeSel]  = { selfgcolor,  selbgcolor,  selbordercolor  },
-};
-*/
 
 /* Volume control commands */
 static const char *audioMute[]      = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
@@ -61,9 +54,11 @@ static const int lockfullscreen = 1;  /* force focus on fullscreen window */
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    { "[]=",      tile },
     { "><>",      NULL },
+    { "[]=",      tile },
     { "[M]",      monocle },
+    { "|M|",      centeredmaster },
+    { ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -88,7 +83,6 @@ static const char *fullscreenshot[] = { "scrot", "-e", "mv $f ~/Pictures/screens
 //static const char *scrcpy[] = {"scrcpy",NULL };
 static const char *kalicmd[]  = { "/home/nabaraj/.dotfiles/.config/bin/kali.sh", NULL };
 static const char *win11cmd[]  = { "/home/nabaraj/.dotfiles/.config/bin/win11.sh", NULL };
-static const char *ytcmd[]  = { "/home/nabaraj/.dotfiles/.config/bin/yt-media.sh", NULL };
 static const char *localcmd[]  = { "/home/nabaraj/.dotfiles/.config/bin/media-play.sh", NULL };
 
 
@@ -113,12 +107,9 @@ static const Key keys[] = {
 
     // LAUNCHERS
     { MODKEY,                       XK_a,      spawn,          {.v = dmenucmd } },
-    { MODKEY,                       XK_y,      spawn,          {.v = ytcmd } },
     { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_v,      spawn,          {.v = kalicmd } },
-    { MODKEY, 			    XK_5,      view, 	       {.ui = 1 << 4} },
     { MODKEY,                       XK_w,      spawn,          {.v = win11cmd } },
-    { MODKEY, 			    XK_6,      view, 	       {.ui = 1 << 5} },
 
 
     // WINDOW MANAGEMENT
@@ -136,8 +127,10 @@ static const Key keys[] = {
     // LAYOUTS
     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
     { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-    //{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-    { MODKEY,                       XK_m,      spawn,      		{.v = localcmd } },
+    { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+    { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
+    { MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+    { MODKEY,                       XK_y,      spawn,      		{.v = localcmd } },
     { MODKEY,                       XK_space,  setlayout,      {0} },
     { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 

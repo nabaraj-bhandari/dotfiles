@@ -15,7 +15,7 @@ xrandr --output eDP-1 --mode 1920x1080 &
 dwmblocks &
 
 # Compositor
-~/.config/bin/dwm_wall_auto.sh &
+~/.config/bin/wal &
 picom --config ~/.config/picom/picom.conf &
 
 # Start notification daemon
@@ -23,8 +23,6 @@ dunst &
 
 # Start ws-server
 #~/.dotfiles/.config/bin/ws-server &
-
-# Load wallpapers
 
 while true; do
 	dwm >/dev/null 2>&1

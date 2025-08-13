@@ -1,0 +1,25 @@
+[global]
+font = JetBrains Mono 13
+geometry = "300x60-10+50"
+transparency = 8
+icon_position = left
+max_notifications = 5
+sort = yes
+stack_duplicates = yes
+
+[urgency_low]
+timeout = 4
+background = "#0a0f18"    # very dark navy/black
+foreground = "#eec6c7"    # soft pinkish (light)
+frame_color = "#848BA4"   # muted blue-gray
+
+[urgency_normal]
+timeout = 7   # muted rose-gray
+frame_color = "#3A5983"   # deep blue
+
+[urgency_critical]
+timeout = 0
+background = "#E05E6D"    # bright coral/red
+foreground = "#0a0f18"    # dark background for contrast
+frame_color = "#E05E6D"   # same coral/red frame
+
