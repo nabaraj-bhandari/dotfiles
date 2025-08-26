@@ -21,6 +21,8 @@ picom --config ~/.config/picom/picom.conf &
 # Start notification daemon
 dunst &
 
+#freebsd &
+
 # Start ws-server
 #~/.dotfiles/.config/bin/ws-server &
 

@@ -9,15 +9,9 @@ fi
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 export PATH=/usr/bin:/usr/local/bin:/bin:/sbin:/usr/sbin:$PATH
 
-export ANDROID_HOME=/opt/android-sdk
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.dotfiles/.oh-my-zsh"
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,

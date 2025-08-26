@@ -50,6 +50,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *termcmd[] = {"st", NULL};
 static const char *dmenucmd[] = {"dmenu_run", NULL};
+static const char *ytcmd[] = {"yt", NULL};
 static const char *audioMute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@",
                                   "toggle", NULL};
 static const char *audioLowerVolume[] = {"pactl", "set-sink-volume",
@@ -80,6 +81,7 @@ static const Key keys[] = {
 
     // LAUNCHERS
     {MODKEY, XK_a, spawn, {.v = dmenucmd}},
+    {MODKEY, XK_y, spawn, {.v = ytcmd}},
     {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
 
     // WINDOW MANAGEMENT

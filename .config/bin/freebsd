@@ -1,0 +1,13 @@
+#! /usr/bin/sh
+
+qemu-system-x86_64 \
+  -hda ~/os/freebsd/freebsd.img \
+  -boot c \
+  -m 1G \
+  -enable-kvm \
+  -cpu host \
+  -smp 2 \
+  -net nic \
+  -net user,hostfwd=tcp::2222-:22
+
+sleep 2
