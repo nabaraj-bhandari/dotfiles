@@ -8,6 +8,5 @@ qemu-system-x86_64 \
   -enable-kvm \
   -boot c \
   -net nic \
-  -net user \
-  -vnc :0
+  -net user 
 
