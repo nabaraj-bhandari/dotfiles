@@ -24,7 +24,7 @@ dunst &
 #freebsd &
 
 # Start ws-server
-#~/.dotfiles/.config/bin/ws-server &
+~/.dotfiles/.config/bin/ws-server &
 
 while true; do
 	dwm >/dev/null 2>&1
