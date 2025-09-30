@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+URL_FILE="$HOME/.config/firefox/vip-tabs.txt"
+FIREFOX_BIN="/usr/bin/firefox"
+FIREFOX_CMD="$FIREFOX_BIN -P nabaraj-main"
+
+if [[ ! -f "$URL_FILE" ]]; then
+  echo "Error: URL file not found at $URL_FILE" >&2
+  exit 1
+fi
+
+if [[ ! -x "$FIREFOX_BIN" ]]; then
+  echo "Error: Firefox binary not found at $FIREFOX_BIN" >&2
+  exit 1
+fi
+
+mapfile -t URLS < <(grep -v '^\s*$' "$URL_FILE" | grep -v '^#')
+
+# Exit if no URLs
+if [[ ${#URLS[@]} -eq 0 ]]; then
+  echo "Error: No URLs found in $URL_FILE" >&2
+  exit 1
+fi
+
+# Launch Firefox with all URLs
+"$FIREFOX_BIN" --no-remote "${URLS[@]}" &

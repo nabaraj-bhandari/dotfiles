@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Screen dimensions
+SCREEN_W=$(xdpyinfo | awk '/dimensions:/ {print $2}' | cut -d'x' -f1)
+SCREEN_H=$(xdpyinfo | awk '/dimensions:/ {print $2}' | cut -d'x' -f2)
+
+# dmenu size
+DMENU_W=500
+DMENU_H=30
+
+# Calculate center
+X=$(( (SCREEN_W - DMENU_W) / 2 ))
+Y=$(( (SCREEN_H - DMENU_H) / 4 ))  # slightly above center
+
+# Launch dmenu
+dmenu_path | dmenu -fn 'Fira Code-14' -nb '#1d1f21' -nf '#c5c8c6' \
+    -sb '#81a2be' -sf '#1d1f21' -x $X -y $Y -w $DMENU_W -l 20
+

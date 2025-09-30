@@ -1,21 +1,35 @@
 /* appearance */
-static const unsigned int borderpx = 1; /* border pixel of windows */
-static const unsigned int snap = 32;    /* snap pixel */
+static const unsigned int borderpx = 2; /* border pixel of windows */
+static const unsigned int snap = 16;    /* snap pixel */
 static const int showbar = 1;           /* 0 means no bar */
 static const int topbar = 1;            /* 0 means bottom bar */
-static const int vertpad = 4;           /* vertical padding of bar */
-static const int sidepad = 4;           /* horizontal padding of bar */
 static const char *fonts[] = {"JetBrains Mono:size=12"};
-static const int gappx = 4; /* gaps between windows */
+static char dmenumon[2] = "0";
 
-#include "/home/nabaraj/.cache/wal/colors-wal-dwm.h"
+static const char norm_fg[] = "#7ac3c8";
+static const char norm_bg[] = "#050909";
+static const char norm_border[] = "#55888c";
 
+static const char sel_fg[] = "#7ac3c8";
+static const char sel_bg[] = "#074B51";
+static const char sel_border[] = "#7ac3c8";
+
+static const char urg_fg[] = "#7ac3c8";
+static const char urg_bg[] = "#0E3A46";
+static const char urg_border[] = "#0E3A46";
+
+static const char *colors[][3] = {
+    /*               fg           bg         border                         */
+    [SchemeNorm] = {norm_fg, norm_bg, norm_border},
+    [SchemeSel] = {sel_fg, sel_bg, sel_border},
+    [SchemeUrg] = {urg_fg, urg_bg, urg_border},
+};
 /* tagging */
 static const char *tags[] = {"1", "2", "3", "4", "5", "6", "7"};
 
 /* no rules at all */
 static const Rule rules[] = {
-    {NULL, NULL, NULL, 0, 0, -1},
+    {"dmenu_run_desktop", NULL, NULL, 1, 0, -1},
 };
 
 /* layout(s) */
@@ -25,9 +39,9 @@ static const int resizehints = 0;    /* ignore size hints for better tiling */
 static const int lockfullscreen = 1; /* force focus on fullscreen window */
 
 static const Layout layouts[] = {
+    {"><>", NULL},
     {"[]=", tile},
     {"[M]", monocle},
-    {"><>", NULL},
 };
 
 /* key definitions */
@@ -49,7 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *termcmd[] = {"st", NULL};
-static const char *dmenucmd[] = {"dmenu_run", NULL};
+static const char *dmenucmd[] = {"dmenu_run_desktop", NULL};
 static const char *ytcmd[] = {"yt", NULL};
 static const char *audioMute[] = {"pactl", "set-sink-mute", "@DEFAULT_SINK@",
                                   "toggle", NULL};
@@ -65,6 +79,8 @@ static const char *screenshot[] = {"flameshot", "gui", NULL};
 static const char *fullscreenshot[] = {
     "flameshot", "full", "-c", "-p", "/home/nabaraj/Pictures/screenshots",
     NULL};
+static const char *emojiPicker[] = {"emoji-picker"};
+static const char *firefoxDefault[] = {"ff-tabs"};
 
 /* key bindings */
 static const Key keys[] = {
@@ -83,6 +99,8 @@ static const Key keys[] = {
     {MODKEY, XK_a, spawn, {.v = dmenucmd}},
     {MODKEY, XK_y, spawn, {.v = ytcmd}},
     {MODKEY | ShiftMask, XK_Return, spawn, {.v = termcmd}},
+    {MODKEY, XK_e, spawn, {.v = emojiPicker}},
+    {MODKEY, XK_r, spawn, {.v = firefoxDefault}},
 
     // WINDOW MANAGEMENT
     {MODKEY, XK_b, togglebar, {0}},
@@ -100,7 +118,6 @@ static const Key keys[] = {
     {MODKEY, XK_t, setlayout, {.v = &layouts[0]}},
     {MODKEY, XK_m, setlayout, {.v = &layouts[1]}},
     {MODKEY, XK_f, setlayout, {.v = &layouts[2]}},
-    {MODKEY, XK_space, setlayout, {0}},
     {MODKEY | ShiftMask, XK_space, togglefloating, {0}},
 
     // MULTI-MONITOR
