@@ -83,7 +83,7 @@ show_picker() {
     update_all
   fi
 
-  chosen=$(cat "$COMBINED_FILE" | dmenu -i -l 15 -p "Search:")
+  chosen=$(cat "$COMBINED_FILE" | dmenu -i -l 15 -p "Search:" -fn "Monospace 12, Noto Color Emoji 12")
 
   [[ -z "$chosen" ]] && exit 0
 
