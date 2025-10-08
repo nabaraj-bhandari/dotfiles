@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Usage: sb <module>
+MODULE=$1
+
+case "$MODULE" in
+music)
+  playerctl metadata --format '{{ title }}' 2>/dev/null
+  ;;
+volume)
+  pamixer --get-volume-human 2>/dev/null
+  ;;
+brightness)
+  brightnessctl g | awk -v max=$(brightnessctl m) '{printf "%d%%", ($1/max)*100}'
+  ;;
+wifi)
+  iw wlo1 link 2>/dev/null | awk -F'SSID: ' '/SSID/ {print $2}' || echo "No Wi-Fi"
+  ;;
+memory)
+  free -h | awk '/Mem/ {print $3 "/" $2}'
+  ;;
+disk)
+  df -h / | awk 'NR==2 {print $3 "/" $2}'
+  ;;
+date)
+  date '+%a, %b %d'
+  ;;
+time)
+  date '+%H:%M'
+  ;;
+datetime)
+  date '+%a, %b %d | %H:%M'
+  ;;
+battery)
+  acpi -b | awk '{print $4}' | sed 's/,//'
+  ;;
+*)
+  echo "Unknown module: $MODULE"
+  ;;
+esac
