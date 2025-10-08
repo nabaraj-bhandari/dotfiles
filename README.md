@@ -16,9 +16,6 @@ Custom **DWM (Dynamic Window Manager)** setup with a sleek, minimal, and neon-in
 
 ## Installation
 
-> ⚠️ **Backup your current dotfiles** before applying these.  
-
 ```bash
-# Clone the repository
 git clone --depth=1 https://github.com/nabaraj-bhandari/dotfiles.git
 
